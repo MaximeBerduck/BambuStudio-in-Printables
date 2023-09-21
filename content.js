@@ -1,59 +1,56 @@
-import i18next from 'i18next.js';
-
 setTimeout(function () {
   injectButtons();
 }, 1000);
 
 function injectButtons() {
-  // Sélectionnez tous les boutons avec la classe "slicer-download"
+  // Select all buttons with the "slicer-download" class
   const slicerButtons = document.querySelectorAll("a.slicer-download");
 
-  // Parcourez tous les boutons et ajoutez un nouveau bouton à côté de chaque bouton
+  // Iterate through all the buttons and add a new button next to each one
   slicerButtons.forEach(function (button) {
-    // Créez un lien avec une icône personnalisée
+    // Create a link with a custom icon
     const customLink = document.createElement("a");
     customLink.style.alignSelf = "center";
 
-    // Récupérez le lien de téléchargement qui est en paramètre de l'URL "file"
+    // Get the download link from the "file" parameter in the URL
     const url = new URL(button.href);
     const file = url.searchParams.get("file");
 
-    // Déterminez la plateforme de l'utilisateur
+    // Determine the user's platform
     const isMacOS = navigator.platform.toLowerCase().includes("mac");
 
-    // Créez le lien en fonction de la plateforme
+    // Create the link based on the platform
     if (isMacOS) {
-      customLink.href = "bambustudioopen://" + encodeURIComponent(file); // Sous macOS
+      customLink.href = "bambustudioopen://" + encodeURIComponent(file); // On macOS
     } else {
-      customLink.href = "bambustudio://open?file=" + encodeURIComponent(file); // Sous Windows
+      customLink.href = "bambustudio://open?file=" + encodeURIComponent(file); // On Windows
     }
 
-    // Créez un conteneur pour l'icône
+    // Create a container for the icon
     const iconContainer = document.createElement("div");
     iconContainer.style.width = "30px";
     iconContainer.style.height = "30px";
-    iconContainer.style.borderRadius = "50%"; // Crée un cercle
-    iconContainer.style.borderStyle = "solid"; // Définit le style de la bordure sur "solid"
-    iconContainer.style.borderColor = "#e0e0e0"; // Couleur de la bordure du cercle (noir)
-    iconContainer.style.borderWidth = "1px"; // Épaisseur de la bordure du cercle
-    iconContainer.style.overflow = "hidden"; // Masque tout contenu dépassant du cercle
-    iconContainer.style.display = "flex"; // Utilisez Flexbox pour centrer l'icône verticalement
-    iconContainer.style.justifyContent = "center"; // Centre l'icône horizontalement
+    iconContainer.style.borderRadius = "50%"; // Create a circle
+    iconContainer.style.borderStyle = "solid"; // Set the border style to "solid"
+    iconContainer.style.borderColor = "#e0e0e0"; // Border color of the circle (gray)
+    iconContainer.style.borderWidth = "1px"; // Border thickness of the circle
+    iconContainer.style.overflow = "hidden"; // Hide any content overflowing from the circle
+    iconContainer.style.display = "flex"; // Use Flexbox to center the icon vertically
+    iconContainer.style.justifyContent = "center"; // Center the icon horizontally
 
-    // Créez un élément d'image pour l'icône personnalisée
+    // Create an image element for the custom icon
     const customIcon = document.createElement("img");
-    customIcon.src = chrome.runtime.getURL("images/Logo_BL.svg"); // Utilisez chrome.runtime.getURL() pour obtenir l'URL absolu
-    customIcon.alt = i18next.t('openInBambuStudio'); // Texte alternatif pour l'icône
+    customIcon.src = chrome.runtime.getURL("images/Logo_BL.svg"); // Use chrome.runtime.getURL() to get the absolute URL
+    customIcon.alt = "Open in BambuStudio"; // Alternate text for the icon
+    customIcon.style.width = "15px"; // Adjust the size of the icon if necessary
 
-    customIcon.style.width = "15px"; // Ajustez la taille de l'icône si nécessaire
-
-    // Ajoutez l'icône à l'intérieur du conteneur
+    // Add the icon inside the container
     iconContainer.appendChild(customIcon);
 
-    // Ajoutez le conteneur de l'icône au lien
+    // Add the icon container to the link
     customLink.appendChild(iconContainer);
 
-    // Insérez le nouveau bouton après le bouton existant
+    // Insert the new button after the existing button
     button.parentNode.insertBefore(customLink, button.nextSibling);
   });
 }

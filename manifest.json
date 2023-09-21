@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Modifier Lien Printables",
+  "name": "BambuStudio Printables",
   "version": "1.0",
-  "description": "Modifie les liens sur le site web Printables.",
+  "description": "This extension modifies the links on printables.com to open in a BambuStudio.",
   "permissions": [
     "activeTab",
     "tabs",
@@ -20,14 +20,6 @@
       "type": "module"
     }
   ],
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "images/Logo_BL.png",
-      "48": "images/Logo_BL@3x.png",
-      "128": "images/Logo_BL@8x.png"
-    }
-  },
   "icons": {
     "16": "images/Logo_BL.png",
     "48": "images/Logo_BL@3x.png",
