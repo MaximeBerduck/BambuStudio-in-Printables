@@ -1,0 +1,18 @@
+{
+  "name": "bambustudio-in-printables",
+  "version": "1.0.0",
+  "description": "Open files in BambuStudio",
+  "main": "content.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maxime BERDUCK",
+  "license": "ISC",
+  "dependencies": {
+    "i18next": "^23.5.1",
+    "i18next-browser-languagedetector": "^7.1.0"
+  },
+  "devDependencies": {
+    "chrome-extension-cli": "^1.5.0"
+  }
+}

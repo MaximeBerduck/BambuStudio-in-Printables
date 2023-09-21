@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Modifier Lien Printables",
+  "version": "1.0",
+  "description": "Modifie les liens sur le site web Printables.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.printables.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "type": "module"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/Logo_BL.png",
+      "48": "images/Logo_BL@3x.png",
+      "128": "images/Logo_BL@8x.png"
+    }
+  },
+  "icons": {
+    "16": "images/Logo_BL.png",
+    "48": "images/Logo_BL@3x.png",
+    "128": "images/Logo_BL@8x.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "images/Logo_BL.png",
+        "images/Logo_BL@3x.png",
+        "images/Logo_BL@8x.png",
+        "images/Logo_BL.svg"
+      ],
+      "matches": [
+        "https://www.printables.com/*"
+      ]
+    }
+  ]
+}
