@@ -25,6 +25,9 @@ Follow these steps to install the Modify Printables Links extension in your brow
 ## How to Use
 
 Once the extension is installed and active, visit the Printables website, and you'll see the modified download links next to 3D models. Clicking on these links will open the models directly in BambuStudio.
+You need to refresh the page to get the button.
+
+![image](https://github.com/MaximeBerduck/BambuStudio-in-Printables/assets/46494436/1fa21b24-5029-43d9-ac51-c79e12439689)
 
 ## Contributing
 
